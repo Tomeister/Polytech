@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS Teachers (
+    teacher_id MEDIUMINT NOT NULL AUTO_INCREMENT, name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (teacher_id))
+
+CREATE TABLE IF NOT EXISTS clases (
+    class_id MEDIUMINT NOT NULL AUTO_INCREMENT, class_number MEDIUMINT NOT NULL,
+    PRIMARY KEY (class_id))
+
+CREATE TABLE IF NOT EXISTS students (
+    students_id MEDIUMINT NOT NULL AUTO_INCREMENT, class_id MEDIUMINT NOT NULL, students_name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (students_id))
+
+CREATE TABLE IF NOT EXISTS rating (
+    subject_id MEDIUMINT NOT NULL AUTO_INCREMENT, class_id MEDIUMINT NOT NULL, students_id MEDIUMINT NOT NULL, dates DATETIME NOT NULL,
+    PRIMARY KEY (subject_id))
+
+CREATE TABLE IF NOT EXISTS leads (
+    teacher_id MEDIUMINT NOT NULL, subject_id MEDIUMINT NOT NULL)
+
+CREATE TABLE IF NOT EXISTS subjects (
+    subject_id MEDIUMINT NOT NULL, subject_name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (subject_id))
+
+CREATE TABLE IF NOT EXISTS teachers_classes (
+    class_id MEDIUMINT NOT NULL, teacher_id MEDIUMINT NOT NULL)
+
+CREATE TABLE IF NOT EXISTS learn (
+    subject_id MEDIUMINT NOT NULL, class_id MEDIUMINT NOT NULL)
